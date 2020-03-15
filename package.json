@@ -1,0 +1,53 @@
+{
+  "name": "pronto",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all --parallel dev:server dev:web",
+    "dev:server": "nodemon --exec babel-node ./bin/www",
+    "dev:web": "webpack --mode development --watch"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-session": "^1.17.0",
+    "http-errors": "~1.6.2",
+    "knex": "^0.20.8",
+    "morgan": "~1.9.0",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "objection": "^2.1.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-remember-me": "0.0.1",
+    "pg": "^7.18.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "sass-loader": "^8.0.2",
+    "sqlite3": "^4.1.1",
+    "var": "^0.4.0",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}

@@ -1,0 +1,100 @@
+//////////////////////////////////////////
+// Utility: Mixins
+//////////////////////////////////////////
+
+// Media Query: Screen by Width
+=mq($type: false, $bp: false, $bp2: false)
+  @if ($type == 'min') and ($bp != false)
+    @media screen and (min-width: $bp)
+      @content
+  @else if ($type == 'max') and ($bp != false)
+    @media screen and (max-width: ($bp - 1))
+      @content
+  @else if ($type == 'range') and ($bp != false) and ($bp2 != false)
+    @media screen and (min-width: $bp) and (max-width: ($bp2 - 1))
+      @content
+
+// Font
+=font($family, $weight: inherit)
+  font-family: #{$family}
+  font-weight: $weight
+
+// Box Shadow
+=box-shadow()
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15)
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15)
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15)
+
+// Gradient
+=gradient-bg-vert($clr-a, $clr-b)
+  background: $clr-a
+  background: -moz-linear-gradient(top, $clr-a 0%, $clr-b 100%)
+  background: -webkit-linear-gradient(top, $clr-a 0%, $clr-b 100%)
+  background: linear-gradient(to bottom, $clr-a 0%, $clr-b 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$clr-a', endColorstr='$clr-b',GradientType=0 )
+
+=gradient-bg-horiz($clr-a, $clr-b)
+  background: $clr-a
+  background: -moz-linear-gradient(left, $clr-a 0%, $clr-b 100%)
+  background: -webkit-linear-gradient(left, $clr-a 0%,$clr-b 100%)
+  background: linear-gradient(to right, $clr-a 0%,$clr-b 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$clr-a', endColorstr='$clr-b',GradientType=1 )
+
+=gradient-bg-diag($clr-a, $clr-b)
+  background: $clr-a
+  background: -moz-linear-gradient(-45deg, $clr-a 0%, $clr-b 100%)
+  background: -webkit-linear-gradient(-45deg, $clr-a 0%,$clr-b 100%)
+  background: linear-gradient(135deg, $clr-a 0%,$clr-b 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$clr-a', endColorstr='$clr-b',GradientType=1 )
+
+// Transition
+=transition($prop)
+  -webkit-transition: $prop 0.3s ease-out
+  -moz-transition: $prop 0.3s ease-out
+  -ms-transition: $prop 0.3s ease-out
+  -o-transition: $prop 0.3s ease-out
+  transition: $prop 0.3s ease-out
+
+=transition-2($prop-a, $prop-b)
+  -webkit-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out
+  -moz-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out
+  -ms-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out
+  -o-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out
+  transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out
+
+=transition-3($prop-a, $prop-b, $prop-c)
+  -webkit-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out, $prop-c 0.3s ease-out
+  -moz-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out, $prop-c 0.3s ease-out
+  -ms-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out, $prop-c 0.3s ease-out
+  -o-transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out, $prop-c 0.3s ease-out
+  transition: $prop-a 0.3s ease-out, $prop-b 0.3s ease-out, $prop-c 0.3s ease-out
+
+// Transform
+=transform-translate($x, $y)
+  -webkit-transition: translate($x, $y)
+  -moz-transition: translate($x, $y)
+  -ms-transition: translate($x, $y)
+  -o-transform: translate($x, $y)
+  transform: translate($x, $y)
+
+=transform-rotate($deg)
+  -webkit-transform: rotate($deg)
+  -moz-transform: rotate($deg)
+  -ms-transform: rotate($deg)
+  -o-transform: rotate($deg)
+  transform: rotate($deg)
+
+=transform-scale($w, $h)
+  -webkit-transform: scale($w, $h)
+  -moz-transform: scale($w, $h)
+  -ms-transform: scale($w, $h)
+  -o-transform: scale($w, $h)
+  transform: scale($w, $h)
+
+// Animations
+=animate($name, $speed)
+  -webkit-animation: $name $speed linear infinite
+  -moz-animation: $name $speed linear infinite
+  -ms-animation: $name $speed linear infinite
+  -o-animation: $name $speed linear infinite
+  animation: $name $speed linear infinite

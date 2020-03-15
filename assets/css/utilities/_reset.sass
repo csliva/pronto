@@ -1,0 +1,42 @@
+//////////////////////////////////////////
+// Utility: Reset
+//////////////////////////////////////////
+
+*,
+*:before,
+*:after,
+html
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  -ms-box-sizing: border-box
+  box-sizing: border-box
+
+html,
+body
+  margin: 0
+  padding: 0
+  font-size: $bfs
+  line-height: $blh
+  color: $clr-text
+  font-family: $font-main
+
+h1, h2, h3, h4, h5, h6
+  margin-top: 0
+  margin-bottom: $blh
+  color: $clr-purp-alt
+  font-family: $font-alt
+
+p
+  margin-bottom: $blh
+
+a
+  color: $clr-pink
+  text-decoration: none
+  &:hover,
+  &:focus,
+  &:active
+    color: darken($clr-pink, 15%)
+
+button
+  &:hover
+    cursor: pointer

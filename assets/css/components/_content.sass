@@ -1,0 +1,75 @@
+//////////////////////////////////////////
+// Component: Content
+//////////////////////////////////////////
+
+.content
+  display: block
+  margin: auto
+  &--tile
+    background-color: #fff
+    padding: $blh $blh*2
+    +box-shadow()
+  &--bar
+    padding-bottom: 0
+    margin-bottom: $blh
+  &--80
+    width: 80%
+  &--50
+    width: 50%
+  &__header
+    position: relative
+    margin: (-$blh) (-$blh*2) $blh (-$blh*2)
+    border-bottom: solid 1px #eee
+    border-left: solid 4px $clr-purp-alt
+    overflow: hidden
+    .content--bar &
+      margin-bottom: 0
+    &:before
+      content: ''
+      width: 16px
+      height: 16px
+      position: absolute
+      top: 50%
+      left: -10px
+      margin-top: -8px
+      background-color: $clr-purp-alt
+      border-radius: 100%
+  &__atom-icon,
+  &__atom-icon-2
+    +animate(rotating, 4s)
+    position: absolute
+    z-index: 10
+    top: 50%
+    left: -20px
+    margin-top: -18px
+    display: inline-block
+    width: 36px
+    height: 36px
+    border: solid 2px $clr-pink
+    border-radius: 100%
+    &:before
+      content: ''
+      width: 6px
+      height: 6px
+      position: absolute
+      top: 50%
+      right: -4px
+      margin-top: -3px
+      background: $clr-purp-alt
+      border-radius: 100%
+      outline: 2px solid #fff
+  &__atom-icon-2
+    +animate(rotating, 5s)
+    z-index: 0
+    width: 58px
+    height: 58px
+    margin-top: -29px
+    left: -31px
+    &:before
+      left: -4px
+      right: auto
+  &__title
+    position: relative
+    display: inline-block
+    padding: $blh $blh*2
+    margin: 0
