@@ -10,21 +10,20 @@ require('dotenv').config();
 
 
 var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.engine('pug', require('pug').__express)
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //Session storage
-let sesh = session({
+/*let sesh = session({
   secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true
@@ -32,13 +31,12 @@ let sesh = session({
 app.use(passport.initialize());
 app.use(sesh);
 app.use(passport.session());
+*/
 app.use(flash());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -38,7 +38,11 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({ filename: "bundle.css" }),
-        new CopyWebpackPlugin([{ from: 'assets/images', to: 'images' }]),
+        new CopyWebpackPlugin({
+          patterns: [
+              { from: 'assets/images', to: 'images' },
+          ],
+      }),
         new VueLoaderPlugin()
     ],
     devServer: {
